@@ -173,7 +173,7 @@ npm run dev
 
 Frontend
 
-https://synapse-ai-mauve.vercel.app/copilot
+https://synapse-ai-mauve.vercel.app
 
 Backend API
 

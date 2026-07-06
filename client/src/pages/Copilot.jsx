@@ -40,12 +40,12 @@ export default function Copilot() {
 
                 <textarea
                     rows="8"
-                    placeholder="Example:
-Plan my day:
-- Finish proposal
-- Client meeting at 2 PM
-- Reply to emails
-- Review PRs"
+                    placeholder="
+                        Plan my day:
+                        - Finish proposal
+                        - Client meeting at 2 PM
+                        - Reply to emails
+                        - Review PRs"
                     value={prompt}
                     onChange={(e) => setPrompt(e.target.value)}
                 />

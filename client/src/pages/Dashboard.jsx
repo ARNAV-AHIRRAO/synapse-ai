@@ -26,7 +26,7 @@ export default function Dashboard() {
 
             <div className="card">
 
-                <h2>🤖 AI Productivity Score</h2>
+                <h2>🤖 Today's Productivity Score</h2>
 
                 <h1 style={{ fontSize: "60px", color: "#2563eb" }}>
 

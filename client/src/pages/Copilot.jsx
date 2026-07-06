@@ -1,68 +1,75 @@
 import { useState } from "react";
 import api from "../services/api";
 
-export default function Copilot(){
+export default function Copilot() {
 
-const[prompt,setPrompt]=useState("");
-const[response,setResponse]=useState("");
-const[loading,setLoading]=useState(false);
+    const [prompt, setPrompt] = useState("");
+    const [response, setResponse] = useState("");
+    const [loading, setLoading] = useState(false);
 
-async function ask(){
+    async function ask() {
 
-setLoading(true);
+        setLoading(true);
 
-try{
+        try {
 
-const res=await api.post("/ai/",{
-type:"planner",
-prompt
-});
+            const res = await api.post("/ai/", {
+                type: "planner",
+                prompt
+            });
 
-setResponse(res.data.response);
+            setResponse(res.data.response);
 
-}catch(err){
+        } catch (err) {
 
-setResponse("Error connecting to AI.");
+            setResponse("Error connecting to AI.");
 
-}
+        }
 
-setLoading(false);
+        setLoading(false);
 
-}
+    }
 
-return(
+    return (
 
-<div>
+        <div>
 
-<h1>🤖 AI Employee Copilot</h1>
+            <h1>🤖 AI Employee Copilot</h1>
 
-<div className="card">
+            <div className="card">
 
-<textarea
-rows="8"
-placeholder="Ask anything..."
-value={prompt}
-onChange={(e)=>setPrompt(e.target.value)}
-/>
+                <textarea
+                    rows="8"
+                    placeholder="Example:
+Plan my day:
+- Finish proposal
+- Client meeting at 2 PM
+- Reply to emails
+- Review PRs"
+                    value={prompt}
+                    onChange={(e) => setPrompt(e.target.value)}
+                />
 
-<button onClick={ask}>
+                <button onClick={ask}>
 
-{loading?"Thinking...":"Ask AI"}
+                    {loading ? "Thinking..." : "Ask AI"}
 
-</button>
+                </button>
 
-</div>
+            </div>
 
-<div className="card">
+            <div className="card">
 
-<h2>AI Response</h2>
+                <h2>AI Response</h2>
 
-<pre>{response}</pre>
+                <pre>{response}</pre>
 
-</div>
+                <p>✨ Generated using Google Gemini AI</p>
 
-</div>
+            </div>
 
-);
+        </div>
+
+    );
 
 }
